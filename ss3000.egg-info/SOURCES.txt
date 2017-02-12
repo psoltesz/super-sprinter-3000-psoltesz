@@ -8,7 +8,9 @@ ss3000.egg-info/SOURCES.txt
 ss3000.egg-info/dependency_links.txt
 ss3000.egg-info/requires.txt
 ss3000.egg-info/top_level.txt
+ss3000/static/pen.png
 ss3000/static/style.css
+ss3000/static/trashcan.png
 ss3000/templates/form.html
 ss3000/templates/index.html
 ss3000/templates/list.html

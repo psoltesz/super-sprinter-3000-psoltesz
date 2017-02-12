@@ -1,6 +1,5 @@
-{% extends "index.html" %} {% block body %}
-<br> {% if stories %}
-<table border=1 cellpadding=3>
+{% extends "index.html" %} {% block body %} {% if stories %}
+<table>
     <tr align=center>
         <td>ID</td>
         <td>Title</td>
@@ -16,8 +15,8 @@
     <tr align=center>
         <td>{{ story.id }}</td>
         <td>{{ story.storytitle }}</td>
-        <td>{{ story.userstory|safe }}</td>
-        <td>{{ story.criteria|safe }}</td>
+        <td>{{ story.userstory }}</td>
+        <td>{{ story.criteria }}</td>
         <td>{{ story.businessvalue }}</td>
         <td>{{ story.estimation}}</td>
         <td>{{ story.status }}</td>

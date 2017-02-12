@@ -1,66 +1,66 @@
 <!doctype html>
 <title>Super-Sprinter 3000</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-<div class=page>{% if story %}
+<div class=subpage>
+    {% if story %}
     <h1>Super-Sprinter 3000 - Edit story</h1>
     <form action="{{ url_for('edit_story', story_id=story.id) }}" method=post class=edit-story>
         <dl>
-            <dt><label for="form">Story title:</label>
-                <dd><input type=text size="40" name="storytitle" id="storytitle" value="{{ story.storytitle }}" required>
-                    <dt><label for="form">User story:</label>
-                        <dd><textarea name="userstory" id="userstory" rows=5 cols=40 required>{{ story.userstory }}</textarea>
-                            <dt><label for="form">Criteria:</label>
-                                <dd>
-                                    <textarea name="criteria" id="criteria" rows=5 cols=40 required>{{ story.criteria }}</textarea>
-                                    <dt><label for="form">Business value:</label>
-                                        <dd>
-                                            <input type="number" size="2" name="businessvalue" id="businessvalue" value="{{ story.businessvalue }}" minlength="100" maxlength="1500"
-                                                step="100" required>
-                                                <dt><label for="form">Estimation (h):</label>
-                                                    <dd>
-                                                        <input type="number" size="2" name="estimation" id="estimation" value="{{ story.estimation }}" minlength="0.5" maxlength="40"
-                                                            step="0.1" required>
-                                                            <dt><label for="form">Status:</label>
-                                                                <dd><select name="status" id="status" value="{{ story.status }}">
+            <br><label for="form">Story title:</label>
+            <dt><input type=text size="71" name="storytitle" id="storytitle" value="{{ story.storytitle }}" required><br><br>
+                <label for="form">User story:</label>
+                <dt><textarea name="userstory" id="userstory" rows=3 cols=70 required>{{ story.userstory }}</textarea><br><br>
+                    <label for="form">Criteria:</label>
+                    <dt><textarea name="criteria" id="criteria" rows=7 cols=70 required>{{ story.criteria }}</textarea><br><br>
+                        <label for="form">Business value:</label>
+                        <dt>
+                            <input type="number" size="2" name="businessvalue" id="businessvalue" value="{{ story.businessvalue }}" minvalue="100" maxvalue="1500"
+                                step="100" required><br><br>
+                                <label for="form">Estimation (h):</label>
+                                <dt>
+                                    <input type="number" size="2" name="estimation" id="estimation" value="{{ story.estimation }}" minvalue="0.5" maxvalue="40"
+                                        step="0.5" required><br><br>
+                                        <label for="form">Status:</label>
+                                        <select style="margin-left: 30px;" name="status" id="status" value="{{ story.status }}">
                                                             <option value="Planning">Planning</option>
                                                             <option value="To Do">To do</option>
                                                             <option value="In progress">In progress</option>
                                                             <option value="Review">Review</option>
                                                             <option value="Done">Done</option>
                                                             </select><br><br>
-                                                                    <dd><input type=submit id="update" value="Update"> </dl>
+                                        <center><input type=submit id="update" value="Update"></center>
+        </dl>
     </form>
     {% else %}
     <h1>Super-Sprinter 3000 - Add new story</h1>
-    <form action="{{ url_for('add_story') }}" method=post class=add-story>
+    <form action="{{ url_for( 'add_story') }} " method=post class=add-story>
         <dl>
-            <dt><label for="form">Story title:</label>
-                <dd><input type=text size=40 name="storytitle" id="storytitle" required>
-                    <dt><label for="form">User story:</label>
-                        <dd>
-                            <textarea name="userstory" id="userstory" rows=5 cols=40 required></textarea>
-                            <dt><label for="form">Criteria:</label>
-                                <dd>
-                                    <textarea name="criteria" id="criteria" rows=5 cols=40 required></textarea>
-                                    <dt><label for="form">Business value:</label>
-                                        <dd>
-                                            <input type="number" size="2" name="businessvalue" id="businessvalue" minlength="100" maxlength="1500" step="100" required>
-                                            <dt><label for="form">Estimation (h):</label>
-                                                <dd>
-                                                    <input type="number" size="2" name="estimation" id="estimation" minlength="0.5" maxlength="40" step="0.5" required>
-                                                    <dt><label for="form">Status:</label>
-                                                        <dd><select name="status" id="status">
+            <br><label for="form">Story title:</label>
+            <dt><input type=text size=71 name="storytitle" id="storytitle" required><br><br>
+                <label for="form">User story:</label>
+                <dt><textarea name="userstory" id="userstory" rows=3 cols=70 required></textarea><br><br>
+                    <label for="form">Criteria:</label>
+                    <dt><textarea name="criteria" id="criteria" rows=7 cols=70 required></textarea><br><br>
+                        <label for="form ">Business value:</label>
+                        <dt>
+                            <input type="number" size="2" name="businessvalue" id="businessvalue" minvalue="100" maxvalue="1500" step="100" required><br><br>
+                            <label for="form ">Estimation (h):</label>
+                            <dt>
+                                <input type="number" size="2" name="estimation" id="estimation" minvalue="0.5" maxvalue="40" step="0.5" required><br><br>
+                                <label for="form">Status:</label>
+                                <select style="margin-left: 30px;" name="status" id="status ">
                                                             <option value="Planning">Planning</option>
                                                             <option value="To Do">To do</option>
-                                                            <option value="In progress">In progress</option>
+                                                            <option value="In progress ">In progress</option>
                                                             <option value="Review">Review</option>
                                                             <option value="Done">Done</option>
                                                             </select><br><br>
-                                                            <dd><input type=submit id="create" value="Create"></dl>
-    </form>{% endif %}
-
+                                <center><input type=submit id="create" value="Create"></center>
+        </dl>
+    </form>
+    {% endif %}
     <div class=metanav>
-        <br>
-        <a href="{{ url_for('display_list') }}">Back to the homepage</a>
+        <p>
+            <a href="{{ url_for( 'display_list') }}">Back to the homepage</a>
     </div>
 </div>

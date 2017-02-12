@@ -70,12 +70,12 @@ def edit_story(story_id):
     story.estimation = request.form['estimation']
     story.status = request.form['status']
     story.save()
-    flash('The user story was successfully updated.')
+    flash('The user story with ID %s was successfully updated.' % story_id)
     return redirect(url_for('display_list'))
 
 
 @app.route('/story/<int:story_id>', methods=['POST'])
 def delete_story(story_id):
     Story.delete().where(Story.id == story_id).execute()
-    flash('The user story was successfully deleted.')
+    flash('The user story with ID %s was successfully deleted.' % story_id)
     return redirect(url_for('display_list'))
