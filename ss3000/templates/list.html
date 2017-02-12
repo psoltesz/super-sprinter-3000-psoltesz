@@ -1,0 +1,39 @@
+{% extends "index.html" %} {% block body %}
+<br> {% if stories %}
+<table border=1 cellpadding=3>
+    <tr align=center>
+        <td>ID</td>
+        <td>Title</td>
+        <td>User story</td>
+        <td>Acceptance criteria</td>
+        <td>Business value</td>
+        <td>Estimation</td>
+        <td>Status</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    {% endif %} {% for story in stories %}
+    <tr align=center>
+        <td>{{ story.id }}</td>
+        <td>{{ story.storytitle }}</td>
+        <td>{{ story.userstory|safe }}</td>
+        <td>{{ story.criteria|safe }}</td>
+        <td>{{ story.businessvalue }}</td>
+        <td>{{ story.estimation}}</td>
+        <td>{{ story.status }}</td>
+        <td>
+            <form action="{{ url_for('get_story_to_edit', story_id=story.id) }}">
+                <input type="image" src="static/pen.png" alt="Edit story" height="20" width="20">
+            </form>
+        </td>
+        <td>
+            <form method="post" action="{{ url_for('delete_story', story_id=story.id) }}">
+                <input type="image" src="static/trashcan.png" alt="Delete story" height="20" width="20">
+            </form>
+        </td>
+    </tr>{% else %}
+</table>
+<center>
+    <u><b>No stories have been added yet.</b></u>
+</center>
+{% endfor %} {% endblock %}

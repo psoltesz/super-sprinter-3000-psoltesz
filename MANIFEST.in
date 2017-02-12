@@ -1,0 +1,4 @@
+graft ss3000/templates
+graft ss3000/static
+include ss3000/connectdatabase.py
+include ss3000/models.py
